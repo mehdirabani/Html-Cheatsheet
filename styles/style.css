@@ -1,0 +1,254 @@
+/* style.css - بازطراحی شده بر اساس الگوی Git-Cheatsheet بدون کلاس اختصاصی جدول */
+@import url("./reset.css");
+@import url("./fonts.css");
+
+/* ==================== متغیرهای CSS ==================== */
+:root {
+  --gradient-start: #667eea;
+  --gradient-end: #764ba2;
+  --table-bg: rgba(255, 255, 255, 0.95);
+  --header-bg: linear-gradient(135deg, #2d3748, #1a202c);
+  --row-even-bg: #f8fafc;
+  --row-odd-bg: #ffffff;
+  --code-bg: #f1f5f9;
+  --border-radius-lg: 24px;
+  --border-radius-md: 12px;
+  --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --transition: all 0.2s ease;
+}
+
+/* ==================== بدنه با گرادیانت مثل الگو ==================== */
+body {
+  background: linear-gradient(
+    135deg,
+    var(--gradient-start),
+    var(--gradient-end)
+  );
+  min-height: 100vh;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  font-family: "Yekan", tahoma, system-ui, "Segoe UI", sans-serif;
+  color: #1e293b;
+}
+
+/* کانتینر اصلی برای چیدمان */
+main {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* عنوان اصلی با افکت شیشه‌ای و گرادیانت متن */
+h1 {
+  text-align: center;
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  font-weight: 800;
+  margin-bottom: 2rem;
+  background: linear-gradient(135deg, #fff, #e2e8f0);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.02em;
+  position: relative;
+}
+h1::after {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #fff, transparent);
+  border-radius: 2px;
+  margin: 0.5rem auto 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -20px;
+}
+table h1 {
+  background: linear-gradient(135deg, #1e293b, #1e293b);
+  background-clip: text;
+}
+table h1::after {
+  content: "";
+}
+/* عنوان بخش‌ها (h2) */
+h2 {
+  font-size: 1.8rem;
+  margin: 2.5rem 0 1rem 0;
+  padding-right: 0.75rem;
+  border-right: 5px solid #ffd966;
+  font-weight: 600;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+table h2 {
+  color: #1e293b;
+  border-right: none;
+}
+/* کانتینر شیشه‌ای دور هر جدول (اختیاری اما برای حفظ ظاهر الگو توصیه می‌شود) */
+.table-container {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  border-radius: var(--border-radius-lg);
+  padding: 1rem;
+  box-shadow: var(--shadow-lg);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 2rem;
+}
+
+/* ==================== استایل جدول بدون کلاس ==================== */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--table-bg);
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  font-size: 0.95rem;
+}
+/* هدر جدول */
+thead tr {
+  background: var(--header-bg);
+}
+th {
+  padding: 1rem 1.2rem;
+  color: white;
+  font-weight: 600;
+  font-size: 1.05rem;
+  text-align: center;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+/* سلول‌های بدنه */
+td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid #e2e8f0;
+  transition: var(--transition);
+  vertical-align: top;
+}
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* ردیف‌های زوج و فرد */
+tbody tr:nth-child(even) {
+  background-color: var(--row-even-bg);
+}
+tbody tr:nth-child(odd) {
+  background-color: var(--row-odd-bg);
+}
+
+/* افکت هاور روی سطرها */
+tbody tr:hover {
+  background-color: #eef2ff !important;
+  transform: scale(1.01);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* ستون اول (تگ) – جهت چپ برای کدها */
+td:first-child {
+  font-family: "SF Mono", "JetBrains Mono", "Fira Code", monospace;
+  direction: ltr;
+  text-align: left;
+  font-weight: 500;
+  background-color: var(--code-bg);
+  width: 18%;
+}
+/* ستون دوم (توضیحات) – راست‌چین فارسی */
+td:nth-child(2) {
+  text-align: right;
+  vertical-align: middle;
+  line-height: 1.5;
+}
+/* ستون سوم (نمونه کد) – چپ‌چین برای کدها */
+td:nth-child(3) {
+  direction: ltr;
+  text-align: left;
+  background-color: var(--code-bg);
+  width: 42%;
+}
+/* ستون چهارم (خروجی) – راست‌چین برای نمایش فارسی */
+td:last-child {
+  text-align: center;
+  vertical-align: middle;
+  background: #fef9e3;
+  font-family: "Yekan", tahoma;
+  direction: rtl;
+}
+
+/* استایل تگ <code> و <pre><code> داخل جدول */
+code,
+.code {
+  background: #1e293b;
+  color: #e2e8f0;
+  padding: 0.2rem 0.5rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  display: inline-block;
+  white-space: normal;
+  word-break: break-word;
+  direction: ltr;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 1px 2px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+code:hover,
+.code:hover {
+  transform: translateY(-1px);
+  background: #334155;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    0 4px 8px rgba(0, 0, 0, 0.2);
+}
+/* استایل برای pre code (بلوک‌های چندخطی) */
+pre {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  overflow-x: auto;
+}
+pre code {
+  display: block;
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  background: #0f172a;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05),
+    0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* ==================== ریسپانسیو برای موبایل ==================== */
+@media (max-width: 768px) {
+  body {
+    padding: 1rem 0.75rem;
+  }
+  .table-container {
+    padding: 0.5rem;
+  }
+  th,
+  td {
+    padding: 0.7rem 0.5rem;
+    font-size: 0.8rem;
+  }
+  td:first-child,
+  td:nth-child(3) {
+    width: auto;
+  }
+  code {
+    font-size: 0.7rem;
+    padding: 0.15rem 0.4rem;
+  }
+  pre code {
+    font-size: 0.7rem;
+    padding: 0.5rem;
+  }
+}
