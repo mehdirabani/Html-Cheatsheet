@@ -429,5 +429,110 @@
         </tr>
       </tbody>
     </table>
+    <!-- Add Media Tag -->
+    <h2>Media Tag</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>تگ</th>
+          <th>توضیحات</th>
+          <th>نمونه کد</th>
+          <th>خروجی</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code class="code">&lt;img&gt;</code></td>
+          <td>نمایش تصویر</td>
+          <td>
+            <pre>
+            <code>&lt;img src="https://cdn.deepseek.com/chat/icon.png" width="100" alt="deepseek"&gt;</code>
+          </pre>
+          </td>
+          <td>
+            <img
+              src="https://cdn.deepseek.com/chat/icon.png"
+              width="100"
+              alt="sabzlearn"
+              style="margin: auto"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code">&lt;video&gt;</code></td>
+          <td>نمایش ویدیو</td>
+          <td>
+            <pre>
+            <code>&lt;video src="https://tech.sabzlearn.ir/html-tmp/01_Into.mp4" width="100" controls&gt;</code>
+          </pre>
+          </td>
+          <td>
+            <video
+              src="https://tech.sabzlearn.ir/html-tmp/01_Into.mp4"
+              width="360"
+              style="margin: auto"
+              controls
+              muted
+            ></video>
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code">&lt;audio&gt;</code></td>
+          <td>پخش و مدیریت آهنگ و صوت</td>
+          <td>
+            <pre><code>&lt;audio src="https://dls.goodmusics.ir/ebi/remix-ebi-2026.mp3" controls&gt;</code></pre>
+          </td>
+          <td>
+            <audio
+              src="https://dls.goodmusics.ir/ebi/remix-ebi-2026.mp3"
+              controls
+            ></audio>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3">
+            <bdo dir="rtl">
+              در صورت استفاده از <bdo dir="ltr">Attribut</bdo> های روبرو
+              ویژگی‌های خاصی به پلیر خود بدهید قابل استفاده هم برای
+              <bdo dir="ltr">video</bdo> و <bdo dir="ltr">audio</bdo></bdo
+            >
+          </td>
+          <td colspan="1">
+            <abbr title="نمایش نوار کنترل ویدیو پلیر">controls</abbr> ,
+            <abbr title="پخش خودکار ویدیو و صوت به محض لود شدن صفحه"
+              >autoplay</abbr
+            >
+            ,
+            <abbr title="پخش اولیه سایلنت و بدون صدا است">muted</abbr>
+          </td>
+        </tr>
+        <tr>
+          <td><code class="code">&lt;picture&gt;</code></td>
+          <td>برای نمایش چندین عکس در حالات مختلف صفحه رو کوچیک کن تا عکس عوض بشه </td>
+          <td>
+            <pre>
+              <code>&lt;picture&gt;
+  &lt;source media="(min-width: 735px)" 
+          srcset="https://sabzlearn.ir/young-man.webp"&gt;
+  &lt;img src="https://cdn.deepseek.com/chat/icon.png" alt="deepseek"&gt;
+&lt;/picture&gt;</code>
+          </pre>
+          </td>
+          <td>
+            <picture>
+              <source
+                media="(min-width: 735px)"
+                srcset="https://sabzlearn.ir/young-man.webp"
+              />
+              <img
+                src="https://cdn.deepseek.com/chat/icon.png"
+                alt="deepseek"
+              />
+            </picture>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- Add Table -->
   </body>
 </html>
